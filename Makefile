@@ -28,10 +28,10 @@ clean: trim
 
 list:
 	@- mkdir -p $(DIR_BIN) $(DIR_BUILD)/list
-	make $(DIR_BIN)/list_test
-	$(DIR_BIN)/list_test
+	make $(DIR_BIN)/list
+	$(DIR_BIN)/list
 
-$(DIR_BIN)/list_test: $(DIR_BUILD)/list/list.o $(DIR_BUILD)/list/list_test.o
+$(DIR_BIN)/list: $(DIR_BUILD)/list/list.o $(DIR_BUILD)/list/list_test.o
 	@- echo '--- Linking $@ ...'
 	$(CPP) -o $@ $^ $(LINK_LIBS)
 
