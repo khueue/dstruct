@@ -7,7 +7,8 @@ DIR_BUILD = build
 DIR_LIB   = lib
 DIR_SRC   = src
 
-CC         = gcc
+# XXX Can we really use clang and g++ together?
+CC         = clang
 CPP        = g++
 LINK_LIBS  = $(DIR_GTEST_LIB)/libgtest.dylib
 GTEST_WARN = -Wno-variadic-macros -Wno-long-long
