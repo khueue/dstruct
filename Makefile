@@ -27,7 +27,7 @@ clean: trim
 ### List
 
 list:
-	@- mkdir -p $(DIR_BIN)/list $(DIR_BUILD)/list
+	@- mkdir -p $(DIR_BIN) $(DIR_BUILD)/list
 	make $(DIR_BIN)/list_test
 	$(DIR_BIN)/list_test
 
