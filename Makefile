@@ -13,7 +13,7 @@ CPP        = g++
 LINK_LIBS  = $(DIR_GTEST_LIB)/libgtest.dylib
 GTEST_WARN = -Wno-variadic-macros -Wno-long-long
 WARN       = -Wall -Wextra -ansi -pedantic $(GTEST_WARN)
-TWEAK      = -g -O3 -fPIC
+TWEAK      = -O4 -fPIC
 
 all: trim list
 
