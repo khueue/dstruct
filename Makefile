@@ -31,7 +31,7 @@ list:
 	make $(DIR_BIN)/list
 	$(DIR_BIN)/list
 
-$(DIR_BIN)/list: $(DIR_BUILD)/list/list.o $(DIR_BUILD)/list/list_test.o
+$(DIR_BIN)/list: $(DIR_BUILD)/list/list_node.o $(DIR_BUILD)/list/list.o $(DIR_BUILD)/list/list_test.o
 	@- echo '--- Linking $@ ...'
 	$(CPP) -o $@ $^ $(LINK_LIBS)
 
