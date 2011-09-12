@@ -77,10 +77,18 @@ list_remove_first(list_t *list)
     }
     else
     {
-        list_node_t *new_first = list->first->next;
-        list_node_free(list->first);
-        list->first = new_first;
-        list->last  = new_first;
+        list_node_t *node_to_free = list->first;
+        if (list_length(list) == 1)
+        {
+            list->first = NULL;
+            list->last  = NULL;
+        }
+        else /* list_length(list) > 1 */
+        {
+            list->first = list->first->next;
+            list->first->prev = NULL;
+        }
+        list_node_free(node_to_free);
         --list->length;
     }
 }
