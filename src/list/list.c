@@ -27,7 +27,10 @@ list_alloc(void)
 list_t *
 list_free(list_t *list)
 {
-    /* XXX don't forget list nodes */
+    while (!list_is_empty(list))
+    {
+        list_remove_first(list);
+    }
     free(list);
     return NULL;
 }
@@ -55,6 +58,12 @@ list_add_first(list_t *list, void *data)
         list->first = node;
         list->last  = node;
     }
+    else
+    {
+        node->next = list->first;
+        list->first->prev = node;
+        list->first = node;
+    }
 
     ++list->length;
 }
@@ -64,16 +73,16 @@ list_remove_first(list_t *list)
 {
     if (list_is_empty(list))
     {
+        /* Crash? */
     }
     else
     {
-        list_node_t *next = list->first->next;
+        list_node_t *new_first = list->first->next;
         list_node_free(list->first);
-        list->first = next;
-        list->last  = next;
+        list->first = new_first;
+        list->last  = new_first;
+        --list->length;
     }
-
-    --list->length;
 }
 
 void *
