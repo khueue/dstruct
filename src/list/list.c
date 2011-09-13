@@ -18,8 +18,14 @@ list_alloc(void)
     {
         out_of_memory();
     }
-    list->first = NULL;
-    list->last = NULL;
+    return list;
+}
+
+list_t *
+list_init(list_t *list)
+{
+    list->first  = NULL;
+    list->last   = NULL;
     list->length = 0;
     return list;
 }

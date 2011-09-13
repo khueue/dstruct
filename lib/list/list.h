@@ -18,6 +18,9 @@ list_t *
 list_alloc(void);
 
 list_t *
+list_init(list_t *list);
+
+list_t *
 list_free(list_t *list);
 
 int

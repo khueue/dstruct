@@ -13,6 +13,7 @@ main(int argc, char *argv[])
 TEST(list, new_list_is_empty)
 {
     list_t *list = list_alloc();
+    list_init(list);
 
     EXPECT_TRUE(list_is_empty(list));
 
@@ -22,6 +23,7 @@ TEST(list, new_list_is_empty)
 TEST(list, new_list_has_zero_length)
 {
     list_t *list = list_alloc();
+    list_init(list);
 
     EXPECT_EQ(list_length(list), 0);
 
@@ -31,6 +33,7 @@ TEST(list, new_list_has_zero_length)
 TEST(list, add_one_to_empty)
 {
     list_t *list = list_alloc();
+    list_init(list);
 
     char *data = (char *)"data";
     list_add_first(list, data);
@@ -42,6 +45,7 @@ TEST(list, add_one_to_empty)
 TEST(list, add_and_remove_one)
 {
     list_t *list = list_alloc();
+    list_init(list);
 
     char *data = (char *)"data";
     list_add_first(list, data);
